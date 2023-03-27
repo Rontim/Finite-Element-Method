@@ -1,0 +1,109 @@
+
+\documentclass{beamer}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usetheme{PaloAlto}
+\usecolortheme{beetle}
+
+\title{Finite Element Method}
+\subtitle{Numerical Methods}
+\author{
+Ron Timothy Gitonga Ndwiga 
+\and 
+Esther  Mugure Ngugi
+}
+
+
+
+% Use a simple TikZ graphic to show where the logo is positioned
+\logo{\begin{tikzpicture}
+\filldraw[color=red!50, fill=red!25, very thick](0,0) circle (0.5);
+\node[draw,color=white] at (0,0) {LOGO HERE};
+\end{tikzpicture}}
+
+
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Table of Contents}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+%------------------------------------------------------------
+\begin{document}
+\frame{\titlepage}
+%---------------------------------------------------------
+
+\begin{frame}
+\frametitle{Introduction}
+\begin{itemize}
+      \item The Finite Element Method (FEM) is a numerical technique for solving partial differential equations (PDEs) in complex domains.
+      \item It is widely used in engineering and physics applications, and provides accurate and efficient solutions to a wide range of problems.
+      \item In this presentation, we will discuss the steps to solve a PDE using FEM, and how to implement it using Python and the Matplotlib library.
+  \end{itemize}
+\end{frame}
+\begin{frame}{What is FEM?}
+  \begin{itemize}
+      \item FEM involves dividing a complex domain into small, simple subdomains called elements.
+      \item These elements are connected at shared points called nodes, forming a mesh.
+      \item The solution to the PDE is approximated by piecewise polynomial functions within each element, and the solution over the entire domain is obtained by assembling the element solutions and solving the resulting system of equations.
+      \item The accuracy of the FEM solution depends on the number and size of the elements in the mesh, as well as the order of the polynomial functions used to approximate the solution.
+  \end{itemize}
+\end{frame}
+\begin{frame}{Applications}
+  FEM is used in various applications, including:
+  \begin{itemize}
+      \item Structural Analysis
+      \item Fluid Dynamics
+      \item Electromagnetics
+      \item Heat Transfer
+      \item Acoustics
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Steps to Solving a PDE using FEM}
+  The steps to solve a PDE using FEM are:
+  \begin{enumerate}
+      \item Discretize the domain into elements
+      \item Define the element shape functions
+      \item Assemble the stiffness matrix and load vector
+      \item Apply boundary conditions
+      \item Solve the resulting system of equations
+      \vspace{0.5cm}
+    
+    \textbf{Example PDE}: Poisson's equation in 2D
+    \begin{equation*}
+        -\nabla^2 u(x,y) = f(x,y)
+    \end{equation*}
+    
+    \vspace{0.3cm}
+    
+    Here, $\nabla^2$ is the Laplacian operator, and $u(x,y)$ is the unknown function to be solved for. The equation states that the sum of the second partial derivatives of $u$ with respect to $x$ and $y$ equals a given source term $f(x,y)$.
+    
+    For our specific problem, this equation takes the form:
+    
+    \begin{equation*}
+        \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} = f(x,y)
+    \end{equation*}
+    
+    where $u(x,y)$ is the temperature distribution and $f(x,y)$ is the heat source term.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Implementing the Finite Element Method in Python}
+    To implement the Finite Element Method in Python, we can use the NumPy and SciPy libraries to perform numerical calculations and linear algebra operations. Here's an example of how we could solve the Poisson's equation using FEM in Python:
+    
+    \begin{enumerate}
+        \item Define the mesh of nodes and elements
+        \item Assemble the global stiffness matrix and force vector
+        \item Apply boundary conditions to the system of equations
+        \item Solve the system of equations to obtain the nodal values of the solution
+    \end{enumerate}  
+\end{frame}
+    
+\begin{frame}{Conclusion}
+      FEM is a powerful numerical technique for solving PDEs in complex domains. It involves dividing the domain into small subdomains called elements, and approximating the solution as piecewise polynomial functions within each element. The accuracy of the solution depends on the number and size of the elements in the mesh, as well as the
+\end{frame}
+  
+\end{document}
